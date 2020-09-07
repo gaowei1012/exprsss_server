@@ -41,3 +41,9 @@ exports.register = (val) => {
     const _sql = 'insert into users set username=?, password=?, create_at=?;'
     return query(_sql, val)
 }
+
+// 查询该用户是否注册
+exports.finUserByName = (username) => {
+    const _sql = `select * from users where username='${username}';`
+    return query(_sql)
+}
