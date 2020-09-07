@@ -10,8 +10,7 @@ module.exports = {
         PORT: '3306',
         HOST: '127.0.0.1'
     },
-    token: {
-        tokenExpiresTime: 1000 * 60 * 60 * 24 * 7,
-        jwtSecret: 'jwtSecret',
-    },
+    jwtSecret: 'express_jwt',
+    tokenExpiresTime: 1000 * 60 * 60 * 24 * 7,
+    
 }
