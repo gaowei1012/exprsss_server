@@ -1,5 +1,6 @@
 const UserModal = require('../mysql/mysql');
 const { createAt } = require('../utils/format')
+const { encrypted, decrypted, checkPassword } = require('../utils/crypto')
 
 class UserControler {
     async getinfo(res, req) {
@@ -54,9 +55,11 @@ class UserControler {
     async register(res, req) {
         try {
             let { username, password } = res.body;
-            console.log('res', username)
+            let newPsd = ''
+            newPsd += encrypted(password, 'password')
+            // console.log('newPassword', newPsd)
             let create_at = createAt()
-            await UserModal.register([username, password, create_at])
+            await UserModal.register([username, newPsd, create_at])
                 .then(ret => {
                     req.json({
                         code: 1,
