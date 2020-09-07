@@ -29,5 +29,21 @@ module.exports = {
         oldPsd += decipher.final('hex')
 
         return oldPsd
+    },
+
+    /**
+     * 密码比对
+     * @param {*} inputPasswd 
+     * @param {*} userPasswd 
+     */
+    checkPassword(inputPasswd, userPasswd) {
+        let result
+        if (inputPasswd == userPasswd) {
+            result = true
+        } else {
+            result = false
+        }
+        return result
     }
+
 }
